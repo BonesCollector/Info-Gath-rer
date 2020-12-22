@@ -24,6 +24,9 @@ nm = nmap.PortScanner()
 nma = nmap.PortScannerAsync()
 print(bcolors.WARNING + "you which to scan an ip/ips ? \n" + bcolors.ENDC)
 
+def range_intense_all()
+
+
 def callback_result(host, scan_result):
              print("scaning please wait .........\n")
              nm.scan(hosts='192.168.1.0/24', arguments='-n -sP -PE -PA21,23,80,3389')
@@ -69,11 +72,11 @@ def user_choice() :
                 
           elif range_sub_scan == 'no' :
             all_ports_ = input(""" 1 - scan all ports  ? 
- 2 - selected ports scan ? \n""")
+ 2 - selected ports scan ? \n\n""")
             if all_ports_ == '1' :
-                intense = input("is it intense scan or enmuration scan ?\n yes or no : ")
+                intense = input("\nis it intense scan or enmuration scan ?\n yes or no : ")
                 if intense =='yes' :
-                 print("intense")
+                 range_intense_all()
       else :
        print ("not ENTER")
 user_choice()
