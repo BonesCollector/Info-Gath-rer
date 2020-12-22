@@ -17,7 +17,13 @@ class bcolors:
     RED= '\033[1;31m'
 
 os.system("clear")
-os.system("sh banner")
+print(bcolors.RED +"""
+██╗███╗░░██╗███████╗░█████╗░░██████╗░░█████╗░████████╗██╗░░██╗██╗██████╗░███████╗██████╗░
+██║████╗░██║██╔════╝██╔══██╗██╔════╝░██╔══██╗╚══██╔══╝██║░░██║╚█║██╔══██╗██╔════╝██╔══██╗
+██║██╔██╗██║█████╗░░██║░░██║██║░░██╗░███████║░░░██║░░░███████║░╚╝██████╔╝█████╗░░██████╔╝
+██║██║╚████║██╔══╝░░██║░░██║██║░░╚██╗██╔══██║░░░██║░░░██╔══██║░░░██╔══██╗██╔══╝░░██╔══██╗
+██║██║░╚███║██║░░░░░╚█████╔╝╚██████╔╝██║░░██║░░░██║░░░██║░░██║░░░██║░░██║███████╗██║░░██║
+╚═╝╚═╝░░╚══╝╚═╝░░░░░░╚════╝░░╚═════╝░╚═╝░░╚═╝░░░╚═╝░░░╚═╝░░╚═╝░░░╚═╝░░╚═╝╚══════╝╚═╝░░╚═╝"""+ bcolors.ENDC)
 print ("_" * 50)
 print ("\n")
 nm = nmap.PortScanner()
@@ -31,7 +37,25 @@ def call_back_to_main():
 
 def _intense_scan():
  os.system('clear')
- os.system('sh header.2')
+ print(bcolors.RED +"""
+ #############################################################
+# intense scan is time consuming expect some delay so be     #	
+# patient                                                    #
+# syntax for ips :                                           #
+#          ex.  192.168.1.1  -  to scan single ip            #
+#	        192.168.1.1/24  to scan 255 IPs of the same  #
+#		subnet .                                     #
+#		192.168.1.1-20  to scan 20 IPs from 1-20     # 
+# 	       	                                             #
+# syntax for ports :                                         #
+#           ex.   22  for single port [22]                   #
+#                 0-6666   for range                         #
+#                 22 , 23 , 24    multiple ips               #
+#                                                            #
+# All scans are saved localy every scan named  accordingly   #
+#               ex. intense-scan                             #
+##############################################################
+ """+bcolors.ENDC)
  host = input('enter the ip address to scan : \n' )
  port = input('enter the port ranges : \n')
  print(bcolors.BOLD + bcolors.GREEN +"plase wait .............")
@@ -51,7 +75,25 @@ def _intense_scan():
 
 def enmuration_scan():
  os.system('clear')
- os.system('sh header.2')
+ print(bcolors.OKBLUE +"""
+ #############################################################
+# intense scan is time consuming expect some delay so be     #	
+# patient                                                    #
+# syntax for ips :                                           #
+#          ex.  192.168.1.1  -  to scan single ip            #
+#	        192.168.1.1/24  to scan 255 IPs of the same  #
+#		subnet .                                     #
+#		192.168.1.1-20  to scan 20 IPs from 1-20     # 
+# 	       	                                             #
+# syntax for ports :                                         #
+#           ex.   22  for single port [22]                   #
+#                 0-6666   for range                         #
+#                 22 , 23 , 24    multiple ips               #
+#                                                            #
+# All scans are saved localy every scan named  accordingly   #
+#               ex. intense-scan                             #
+##############################################################
+ """+bcolors.ENDC)
  print("Enmuration scan is a faster method than intense to scan")
  host = input('enter the ip address to scan : \n' )
  port = input('enter the port ranges : \n')
@@ -95,7 +137,14 @@ def main() :
      exit()
     elif choice == '' or '1' :
           os.system("clear")
-          os.system("sh  header.1") 
+          print(bcolors.OKBLUE +""" 
+##############################################################
+#						                                          	     #	
+#                                                            #
+# press enter to scan local-network for online hosts or type #
+# no to scan an IP/IPS [ actively ] .                        #
+#                                                            #
+##############################################################"""+bcolors.ENDC) 
           range_sub_scan=input("Please press enter or type no : \n")
           if range_sub_scan == '' :
             print(bcolors.WARNING + "scaning local-network [192.168.1.1] for up hosts \n" + bcolors.ENDC)
