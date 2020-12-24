@@ -71,6 +71,7 @@ def _intense_scan():
           lport = nm[host][proto].keys()
           for port in lport:
                 print ('port : %s\tstate : %s' % (port, nm[host][proto][port]['state']))
+
               
 
 def enmuration_scan():
@@ -131,9 +132,14 @@ def callback_result(host, scan_result):
 def main() :
     print(bcolors.OKCYAN + "make a choice \n" + bcolors.ENDC)
     print(bcolors.OKGREEN + "1 - scan an IP/IPS ? " + bcolors.ENDC)
-    print (bcolors.OKGREEN + "2 - exit . \n" + bcolors.ENDC)
+    print (bcolors.OKGREEN + "2 - delete created files . \n" + bcolors.ENDC)
+    print (bcolors.OKGREEN + "3 - exit . \n" + bcolors.ENDC)
     choice = input("press enter for scan or type 2   : \n")
     if choice == '2' :
+      os.system("rm *.opt > /dev/null 2>&1")
+      print('deleting files created by scan')
+      main()
+    if choice == '3' :
      exit()
     elif choice == '' or '1' :
           os.system("clear")
@@ -155,10 +161,16 @@ def main() :
  2 - enmuration ports scan ? \n\n""")
             if intense_ == '1' :
               _intense_scan()
+              print(bcolors.WARNING + 'more detailed information :' + bcolors.ENDC )
+              os.system("cat intense-scan.opt")
               call_back_to_main()
             elif intense_ =='2' :
               enmuration_scan()
+              print(bcolors.WARNING + 'more detailed information :' + bcolors.ENDC )
+              os.system("cat enmuration-scan.opt")
               call_back_to_main()
+
+
             else :
              print (bcolors.BOLD + bcolors.RED + "Wrong selections ! "  + bcolors.ENDC ) 
              main()
